@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Event Object</title>
+    <style>
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyword Events</h1>
+    <button>Click</button>
+    <input type="text">
+
+    <h1>Form Events</h1>
+    <h2>My Form</h2>
+    <form action="/shelter" id="shelterForm">
+        <input type="text" id="catName">
+        <button>Submit</button>
+    </form>
+    <h3>Available Cats:</h3>
+    <ul id="cats">
+        <p>These are the cats (this a p not gonna go away with a click)</p>
+        <li>Cat 1</li>
+        <li>Cat 2</li>
+    </ul>
+
+    <h1 id="iceH">Input/Change Events</h1>
+    <input type="text" id="ice">
+
+    <h1>Event Bubbling</h1> <!-- The event bubbles up, from lowermost level to up -->
+    <section onclick="alert('section clicked')">
+        <p onclick="alert('paragraph clicked')">
+            I am a paragraph:
+            <button onclick="alert('button clicked')">Click</button>
+        </p>
+    </section>
+
+    <div id="container">
+        Click to Hide
+        <button>Change Color</button>
+    </div>
+
+    <script src="domEventObject.js"></script>
+</body>
+</html>

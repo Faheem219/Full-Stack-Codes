@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Events</title>
+</head>
+
+<body>
+<!-- ==================
+INLINE EVENTS:
+================== -->
+    <section>
+        <h1>Events</h1>
+        <button onclick="alert('You clicked me!'); alert('stop clicking me')">Click Me</button>
+        <button ondblclick="alert('You clicked me!'); alert('stop clicking me')">Click Me</button>
+        <!-- Lots of repetitive code, not good -->
+
+        <button id="v2">Click me (2nd version)</button>
+        <button id="v3">Click me (3rd version)</button>
+        <button id="tas">Twist and Shout</button>
+    </section>
+    <section>
+        <h2>Random Colors</h2>
+        <button>Click me</button>
+    </section>
+
+    <section id="this">
+        <h2>This keyword</h2>
+        <button>Click me</button>
+        <button>Click me</button>
+        <button>Click me</button>
+        <button>Click me</button>
+        <button>Click me</button>
+    </section>
+
+    <script src="domEvents.js"></script>
+</body>
+
+</html>

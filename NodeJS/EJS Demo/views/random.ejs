@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random</title>
+</head>
+<body>
+    <!-- <h1>Your random number is: <%= Math.floor(Math.random()*10)+1 %></h1> -->
+
+    <!-- We should always try to run as little code as possible in these EJS templates, so basically, we
+    have to make them as stupid as possible, so write the code somewhere else (here, index.js) and return here-->
+    <h1>Your random number is: <%= rand %></h1>
+    <% if(rand%2==0){ %>
+    <h2>That is an even number!</h2>
+    <% } else {%>
+    <h2>That is a odd number!</h2>
+    <% } %>
+    <!-- <%  %> is used for embedding JS code but not rendering it -->
+    <h3>That number is <%= rand%2==0 ? 'EVEN' : 'ODD' %></h3> <!-- This also works -->
+</body>
+</html>

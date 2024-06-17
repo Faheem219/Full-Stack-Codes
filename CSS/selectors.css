@@ -1,0 +1,110 @@
+/* 
+*{
+    background-color: cyan;
+} 
+This is a universal selector, it selects everything */
+
+body{
+    background-color: #f1faee;
+}
+
+button{
+    background-color: #a8dadc;
+}
+/* This is an element selector */
+
+h1, h2{
+    color: #1d3557;
+}
+/* This is a selector list */
+
+#sup{
+    background-color: #1d3557;
+    color: #f1faee;
+}
+/* ID selector: The sign up button has an id in the html file which is referenced here with # symbol 
+ID's SHOULD BE UNIQUE!! btw there are other better selector options, so dont just have a lot of id's. */
+
+span{
+    color: #457b9d;
+}
+
+.tag{
+    background-color: #e63946;
+    color:#f1faee;
+    font-size: 16px;
+}
+/* Class selectors: to collectively modify multiple elements in the same manner, in this eg, we dont want
+all spans to have background colors, so only the spans which we want have been assigned a class in html file
+which is referenced here with a (.), this is a preferred selector method as different types of elements can 
+be styled using this. */
+
+.post a{ /* All anchor tags inside class post */
+    color: #457b9d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+footer a{
+    color:#e63946;
+}
+/* Descendant selector: The space signifies that all anchor tags (a) inside footer should obey this,
+huge difference between commas(,) and spaces ( ) in selectors; commas mean h1 AND h2, and not a IN footer */
+
+h2 + button{
+    font-size: 20px;
+}
+/* Adjacent Combinator: In this eg, any button that comes immediately after an h2 is affected */
+
+footer > a{
+    color: #a8dadc;
+}
+/* Direct Descendant: Any elements that come DIRECTLY under the first element are affected, in this eg,
+the last link is directly under footer, while the other links are under li's which are under ul's etc. */
+
+input[type="password"]{
+    color: darkgreen;
+}
+/* Attribute selector: To select elements having a particular attribute value. Any attribute can be used,
+in this example type attribute was used to differentiate, but even class or id or anything can be used */
+
+a[href*="google"]{
+    color: magenta;
+}
+/* Another example of attribute selector, here *= means any link that contains the word "google",
+$= means any site ending with lets say .com or .org etc. */
+
+.post button:hover{
+    background-color: #e63946;
+    color: #f1faee;
+}
+/* Pseudo classes used by (:) : In this eg it selects every button when it is being hovered over. */
+
+button:hover{
+    background-color: olive;
+    font-size:10px
+}
+/* Specificity: The more specific the selector is, the higher priority it will have, thats why in this eg,
+all buttons when hovered change size but the buttons inside post class do not change colour. */
+
+.post a:hover{
+    text-decoration: underline;
+}
+
+.post button:active{ /* Active means that I'm interacting/clicking the button */
+    background-color: #02c39a;
+}
+
+.post:nth-of-type(2n){ /* Treat the stuff inside this nth-of-type mathematically */
+    background-color: #dfe8dc;
+}
+
+h2::first-letter{
+    font-size: 35px;
+}
+/* Pseudo elements (::) or (:) cuz brosers dont care: In this eg, 1st letter of every h2 is affected */
+
+h2::selection{ /* When the user highlights the h2, the color of the highlight is modified */
+    background-color: #fcbf49 !important;
+}
+/* The !important overrides any specificity rules and makes this the highest priority (bad practice tho) */

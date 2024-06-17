@@ -1,0 +1,97 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+/* FLEX BASIC PROPERTIES: */
+/*
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    border: 5px solid #003049;
+
+    display: flex;
+    flex-direction: column;  Row is default value 
+
+    justify-content: space-evenly;  Used to align items wrt to the main axis 
+
+    flex-wrap: wrap-reverse;  Used to invert the direction of the cross axis 
+
+    align-items: flex-end;  Used to align items in the cross axis 
+
+    align-content: flex-end;  This only works when flex-wrap is enabled, and is used to align the items
+    in the multiple rows or columns (whichever is the cross axis) 
+}
+ Flex has two axes, the MAIN AXIS: left-right (horizontal), and the CROSS AXIS: top-bottom (vertical) 
+ The above is true when flex-direction is row, it is the opposite for flex-direction: column 
+
+#container div{
+    width: 150px;
+    height: 150px;
+    text-align: center;
+}
+
+#container div:nth-of-type(3){
+    align-self: flex-start; 
+} Only works when align-content is not being used, this is not to be used in the container item
+it is to be used in a specific item within conatiner. 
+*/
+
+/* FLEX BASIS GROW SHRINK (SIZING PROPERTIES): */
+#container{
+    background-color: #003049;
+    width: 90%;
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /*flex-wrap: wrap;*/
+}
+
+#container div{
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    flex-basis: 300px; /* It sets the size of the element in the direction of the main axis, ie,
+    either width or height depending on flex-direction. */
+    /*flex-grow: 1;*/ /* Applied on all elements in this container */
+    max-width: 300px; /* Sets the max width for flex-grow */
+}
+
+
+div:nth-of-type(1){
+    flex-grow: 1;
+    flex-shrink: 2; /* Controls the shrinkage when there is less space than defined in flex-basis */
+}
+div:nth-of-type(5){
+    flex-grow: 2;  /* Automatically makes this element grow to take up the empty space inline. */
+}/* Can be used on individual elements as well as all the elements in container */ 
+
+main{
+    width: 80%;
+    margin: 0 auto;
+    border: 5px solid black;
+    height: 500px;
+    display: flex;
+}
+
+main .sidebar{
+    background-color: #6930c3;
+    border: 2px solid white;
+    flex: 1; /* Flex shorthand property: flex: <1 unitless quantity = flex-grow> */
+}
+/* flex: <1 unitless quantity = flex-grow> | flex-shrink | flex-basis */
+
+main .maincontent{
+    background-color: #80ffdb;
+
+    flex: 1 500px; /* flex: <1 unitless quantity = flex-grow> | flex-basis */
+} 

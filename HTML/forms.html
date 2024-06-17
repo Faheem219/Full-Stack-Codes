@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+
+<body>
+    <h1>Forms Demo</h1>
+
+    <button>Outside Form!</button><br>
+
+    <form action="/tacos">
+
+        <button type="button">Will Not Submit!</button><br>
+        <!--By setting type to button, we make it so that it doesnt automatically submit the form-->
+        <label for="Username">Enter a username:</label>
+        <!--For assigning a label to a input use the id="" of input as for="" of the label-->
+        <input type="text" placeholder="Username" id="Username" name="Username"><br>
+        <!--Name attribute does this: file:///tacos?Username=lol-->
+
+        <label for="password">Enter the password:</label>
+        <input type="password" placeholder="Password" id="password" name="Password"><br>
+        <!--Name attribute: file:///tacos?Username=lol&Password=lol123-->
+
+        <button>Middle!</button><br>
+
+        <input type="color"><br>
+        <input type="file"><br>
+
+        <label>
+            Enter a number:
+            <input type="number" placeholder="Number" min="1" max="1000" step="10"><br>
+        </label>
+
+        <button>Submit</button><br>
+
+        <input type="button" value="Click Me!!!"><br>
+        <!--Another way to create button but not preferred as first method is easier to change value-->
+
+    </form>
+    <!--Hijacking Google's search-->
+    <h2>Google Search</h2>
+    <form action="https://www.google.com/search">
+        <p>
+        <input type="text" name="q" placeholder="Search Google">
+        </p>
+        <button>Search Google</button><br>
+    </form>
+
+    <h2>Youtube Search</h2>
+    <form action="https://www.youtube.com/results">
+        <p>
+            <input type="text" name="search_query" placeholder="Search Youtube">
+        </p>
+        <button>Search Youtube</button><br>
+    </form>
+
+    <h2>More Inputs</h2>
+    <form action="/tacos">
+        <p>
+            <input type="checkbox" name="agree_tos" id="agree">
+            <!-- <input type="checkbox" name="agree_tos" id="agree" checked> - To start it checked off-->
+            <label for="agree">I agree to everything</label>
+
+            <p>
+                <input type="radio" name="size" id="xs" value="XS">
+                <!-- The value attribute does this: file:///tacos?size=XS instead of file:///tacos?size=ON -->
+                <label for="xs">Extra Small</label><br>
+                <input type="radio" name="size" id="s" value="S">
+                <label for="s">Small</label><br>
+                <input type="radio" name="size" id="n" value="N">
+                <label for="n">Normal</label><br>
+            </p>
+            <p>
+                <label for="meal">Please select an Entree</label><br>
+                <select name="meal" id="meal">
+                    <option value="">-- Select and option --</option>
+                    <option value="fish">Fish</option>
+                    <option value="veg" selected>Vegetarian</option>
+                    <!-- the selected attribute makes it so that this option is pre-selected -->
+                    <option value="chicken">Chicken</option>
+                </select>
+                <!-- use of value attribute: file:///tacos?meal=veg -->
+            </p>
+            <p>
+                <label for="cheese">Amount of cheese:</label>
+                <input type="range" id="cheese" min="1" max="200" step="2" value="100" name="cheese">
+                <!-- Value: default value, name: file:///tacos?meal=&cheese=175 -->
+            </p>
+
+            <p>
+                <label for="requests">Any Special Requests?</label>
+                <textarea name="req" id="requests" rows="2" cols="30" placeholder="Type something here"></textarea>
+                <!-- file:///tacos?meal=veg&cheese=101&req=behen+ke+lode -->
+            </p>
+            <button>Submit</button>
+            <!--Checkbox does this: file:///tacos?agree_tos=on -->
+        </p>
+    </form>
+
+    <h2>Validations Demo</h2>
+    <form action="/lol">
+        <label for="first">Enter first name</label>
+        <input type="text" name="first" id="first" required><br>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" minlength="5" maxlength="50" required><br>
+
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </p>
+
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+section{
+    background-color: #6d6875;
+    width: 800px; /* This is an absolute unit */ 
+    height: 800px;
+}
+
+div{
+    background-color: #e5989b;
+    width: 50%; /* This is a relative unit */
+    height: 50%; /* This 50% is with respect to the parent element, ie, section in this case */
+}
+
+#ems h1{
+    font-size: 40px;
+    border: 1px solid black;
+    line-height: 200%; /* In this case, it wrt the font size and not necessarily the parent element. */
+}
+
+#ems h2{
+    font-size: 2em; /* This means 2 times the size of parent element, which is article in this case */
+
+    margin-left: 1em; /* This is not the font-size of parent, for every other property em will be a 
+    multiple of the element's own font-size */
+}
+
+#ems h3{
+    font-size: 1.5em;
+}
+
+#ems p{
+    font-size: 1em;
+}
+
+#ems{
+    font-size: 30px;
+}
+
+/* button{
+    font-size: 30px;                This will not maintain the same shape if the font-size is changed,
+    padding: 0 30px;                ie, the curve (border-radius) will be less or more, it will not scale
+    border-radius: 15px;            automatically with the font-size, that is why ems are better to use
+    background-color: #2a9d8f;      as shown below:
+    color: white;
+} */
+
+button{
+    font-size: 1em; /* This is wrt to parent font-size */
+    padding: 0 1em; /* All the other properties are wrt to the elements font-size */
+    border-radius: 0.5em;
+    background-color: #2a9d8f;
+    color: white;
+}
+
+/* Shortcomings of em's */
+
+#ems ul{
+    font-size: 0.8em;
+}
+/* Since em's are strictly based on the parent size, ie, the element just above them, so thats why for
+this eg (nested unordered list) they keep on stacking and changing size in the list */
+
+/* This is where Root ems or rems come in, doesnt matter if the elements are nested, it always just 
+depends on the root element which is: <html lang="en">, this has default font size and we can change it */
+
+html{ /* This is the root */
+    font-size: 20px;
+}
+
+#rems h2{
+    font-size: 3rem;
+}
+
+#rems h3{
+    font-size: 2rem;
+}
+
+#rems ul{
+    font-size: 1.5rem;
+}

@@ -1,0 +1,5 @@
+console.log("Hello World!")
+console.error("Oh no")
+console.warn('Ohh')
+console.info("lol")
+console.log("Nice")

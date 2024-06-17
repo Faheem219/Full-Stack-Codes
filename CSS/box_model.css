@@ -1,0 +1,83 @@
+div{
+    width: 200px;
+    height: 200px;
+}
+
+#one{
+    background-color: #e5989b;
+    border-width: 5px; /* Will make the dimensions 210x210 if border-sizing: border-box is not used. */
+    border-color: black;
+    border-style: solid;
+    box-sizing: border-box; /* Makes it so that the border also lies in the 200x200 dimensions in this eg */
+}
+
+#two{
+    background-color: #b5838d;
+    border-color: #ffcdb2;
+    border-width: 3px;
+    border-style: dashed;
+    border-left-width: 8px;
+    padding-right: 50px;
+}
+
+#three{
+    background-color: #6d6875;
+    border-radius: 50%; /* Makes rounded corners depending on the radius, does not affect content inside */
+    border: 4px solid black; /* To set all properties at once, order matters! */
+    border-left-style: dotted;
+}/* border: width | style | color; This is also known as border shorthand property */
+
+#first{
+    background-color: pink;
+    width: 100px;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+/* Padding is used to add some space between border and content */
+
+button{
+    /* padding: 20px;               Will apply to all four sides */
+    /* padding: 5px 10px;           padding: vertical | horizontal; */
+    /* padding: 3px 5px 3px;        padding: top | horizontal | bottom; */
+    padding: 3px 5px 5px 3px; /*    padding: top | right | bottom | left; */
+}/* This is the padding shorthand property */
+
+h2{
+    background-color: pink;
+    width: 200px;
+    margin-top: 0px;
+    margin: 20px; /* This is the margin shorthand property, syntax same as padding shorthand property. */
+}/* Margin is used to add space between different elements in a webpage. */
+
+span{
+    background-color: paleturquoise;
+    border: 1px solid black;
+    
+    /* display: block; */ /* Converts spans from inline elements to block level elements */
+    
+    width: 500px; /* Width and height are ignored if its an inline element */
+    
+    padding: 10px; /* padding does affect it visually, but it does not push out the content aroung it like block level elements */
+    
+    margin: 50px; /* This is also mostly ignored, except for stuff that is in the same line as this span. */
+}
+
+h1{
+    background-color: palegoldenrod;
+    border: 1px solid black;
+    /* display: inline; */ /* Converts h1 from block level to inline elements */
+
+    width: 300px; 
+    padding: 30px;
+    margin: 25px;
+}/* All the above properties are respected since this is a block level element */
+
+.disp{
+    height: 200px;
+    width: 200px;
+    background-color: olivedrab;
+    border: 5px solid black;
+    /* display: inline;  This will not work as height, width etc. of inline elements are ignored */
+    display: inline-block; /* Makes it so that its an inline element but height, width, etc. are respected */ 
+}
+/* display: none; makes that element not appear on the screen, it is there just not displayed. */

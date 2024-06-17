@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+    font-weight: normal;
+    /* The browser will automatically choose closest font weight for the font used if the exact speified one
+    is not availabe; normal=400, bold=700, any other value does not exist for the default browser font */
+    letter-spacing: 15px;
+    font-size: 80px;
+    font-family: Segoe UI, Futura, Arial, sans-serif;
+    /* You can specify only one font, but if the client side browser does not have it, then it will 
+    display the default font; so that's why these font families are a better option, in this example,
+    priority: Segoe UI > Futura > Arial > sans-serif; sans-serif is a collection of a lot of fonts */
+}
+
+a{
+    text-decoration: none;
+    /* To remove default line below a hyperlink */
+}
+
+h2{
+    text-decoration: #ff00ff underline wavy;
+    font-family: monospace; /* Monospace is a family of fonts */
+    /* Used for different types of underline, etc. */
+}
+
+p{
+    text-align: center;
+    line-height: 1.5;
+}

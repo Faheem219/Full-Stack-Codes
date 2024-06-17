@@ -1,0 +1,22 @@
+h2{
+    color: teal;
+    background-color: rgb(189,189,90);
+}
+
+button{
+    color: #5CFF5c;
+    background-color: rgb(255,0,0);
+}
+
+p{
+    color: olive;
+    background: orange;
+    /* Here background performs the same task as background color, but it is used for much more like
+    images, gradients etc. It is much more powerful. */
+}
+
+body{
+    background-color: #cc55ee;
+    /* Hex codes having both the digits of a color same can also be represented by just a single digit,
+    eg: #cc55ee = #c5e or #000000 = #000 */
+}
