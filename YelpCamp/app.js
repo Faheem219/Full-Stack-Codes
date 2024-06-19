@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== "production"){
+  require('dotenv').config(); // If in developer mode, access the env file fields and store in process.env
+}
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
