@@ -30,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 // FARM ROUTES
 
 // This is a flash middleware that will give access to flash messages on every single route
+// We have access to these 'locals' all over the app
 app.use((req, res, next) => {
     res.locals.messages = req.flash('success');
     next();

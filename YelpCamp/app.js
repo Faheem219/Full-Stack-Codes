@@ -6,9 +6,13 @@ const ejsMate = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./models/user');
 
-const campgrounds = require('./routes/campgrounds');
-const reviews = require('./routes/reviews');
+const campgroundRoutes = require('./routes/campgrounds');
+const reviewRoutes = require('./routes/reviews');
+const userRoutes = require('./routes/users');
 
 // ===================
 // CONFIGURATIONS
@@ -47,10 +51,20 @@ const sessionConfig = {
     maxAge: 1000*60*60*24*7
   }
 }
+
 app.use(session(sessionConfig));
 app.use(flash());
 
+// Setting up passport local strategy
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate())); 
+passport.serializeUser(User.serializeUser()); // How to add a user to session
+passport.deserializeUser(User.deserializeUser()); // How to remove a user from a session
+
+// We have access to these 'locals' all over the app
 app.use((req,res,next)=>{
+  res.locals.currentUser = req.user; // Setting the current user with the help of passport's req.user
   res.locals.success = req.flash('success');
   res.locals.error = req.flash('error');
   next();
@@ -60,8 +74,9 @@ app.use((req,res,next)=>{
 // ROUTES
 // ===================
 
-app.use('/campgrounds', campgrounds);
-app.use('/campgrounds/:id/reviews', reviews); // Here, access to :id will not be given to reviews router 
+app.use('/', userRoutes);
+app.use('/campgrounds', campgroundRoutes);
+app.use('/campgrounds/:id/reviews', reviewRoutes); // Here, access to :id will not be given to reviews router 
 // by default, you have to set mergeParams: true while defining router to enable this 
 
 app.get('/', (req, res) => {
