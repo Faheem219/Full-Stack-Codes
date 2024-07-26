@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: relative; /* Ensure relative positioning for children */
+}
+
+.splash-screen.bg-image {
+  background: url('./assets/BG-GDSC.jpg') no-repeat center center fixed;
+  background-size: contain;
+}
+
+.logo {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+}
+
+.logo.column {
+  flex-direction: column; /* Change flex direction to column */
+  gap: 0px;
+}
+
+.shape {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  color: white;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.shape.red {
+  background-color: #EA4335;
+  animation-delay: 0s;
+}
+
+.shape.green {
+  background-color: #34A853;
+  animation-delay: 0.2s;
+}
+
+.shape.blue {
+  background-color: #4285F4;
+  animation-delay: 0.4s;
+}
+
+.shape.yellow {
+  background-color: #FBBC05;
+  animation-delay: 0.6s;
+}
+
+.text {
+  color: black;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease-in-out;
+  font-family: 'Michroma', sans-serif; /* Apply Michroma font */
+  font-size: 2em; /* Adjust as needed */
+  font-weight: bold;
+}
+
+.text.show {
+  opacity: 1; /* Show text */
+}
+
+.text.hide {
+  opacity: 0; /* Hide text */
+}
+
+.gdsc-logo {
+  position: absolute;
+  width: 100px;
+  transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+  top: 56%; /* Initial vertical position */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset by half of its own width */
+  transform-origin: top left;
+  z-index: 3;
+}
+
+.gdsc-logo.hidden {
+  opacity: 0;
+}
+
+@keyframes moveToTopLeft {
+  from {
+    top: 56%; /* Initial vertical position */
+    left: 50%; /* Initial horizontal position */
+    transform: translateX(-50%); /* Offset by half of its own width */
+  }
+  to {
+    top: 6%; /* Final vertical position */
+    left: -115%; /* Final horizontal position */
+    transform: translate(-50%, -50%); /* Center the logo on its final position */
+  }
+}
+
+.gdsc-logo.move {
+  animation: moveToTopLeft 2s forwards;
+}
+
+/* Media query for screens larger than large size (lg) */
+@media (min-width: 2000px) {
+  @keyframes moveToTopLeft {
+    from {
+      top: 56%; /* Initial vertical position */
+      left: 50%; /* Initial horizontal position */
+      transform: translateX(-50%); /* Offset by half of its own width */
+    }
+    to {
+      top: 4%; /* Adjusted vertical position for larger screens */
+      left: 2%; /* Adjusted horizontal position for larger screens */
+      transform: translate(-50%, -50%); /* Center the logo on its final position */
+    }
+  }
+}
+
+/* Keyframes for shapes stretching animation */
+@keyframes stretchRed {
+  to {
+    width: 100vw; /* Full width */
+    height: 25vh; /* Top 25% height */
+    top: 0; /* Position at the top */
+    left: 0;
+    border-radius: 0; /* Remove border radius */
+    transform: rotate(0); /* Remove rotation */
+  }
+}
+
+@keyframes stretchGreen {
+  to {
+    width: 100vw; /* Full width */
+    height: 25vh; /* Next 25% height */
+    top: 25vh; /* Position below the red shape */
+    left: 0;
+    border-radius: 0; /* Remove border radius */
+    transform: rotate(0); /* Remove rotation */
+  }
+}
+
+@keyframes stretchBlue {
+  to {
+    width: 100vw; /* Full width */
+    height: 25vh; /* Next 25% height */
+    top: 50vh; /* Position below the green shape */
+    left: 0;
+    border-radius: 0; /* Remove border radius */
+    transform: rotate(0); /* Remove rotation */
+  }
+}
+
+@keyframes stretchYellow {
+  to {
+    width: 100vw; /* Full width */
+    height: 25vh; /* Bottom 25% height */
+    top: 75vh; /* Position below the blue shape */
+    left: 0;
+    border-radius: 0; /* Remove border radius */
+    transform: rotate(0); /* Remove rotation */
+  }
+}
+
+/* Applying animation to shapes */
+.shape.red.stretch {
+  animation: stretchRed 1s ease-out forwards;
+}
+
+.shape.green.stretch {
+  animation: stretchGreen 1s ease-out forwards;
+}
+
+.shape.blue.stretch {
+  animation: stretchBlue 1s ease-out forwards;
+}
+
+.shape.yellow.stretch {
+  animation: stretchYellow 1s ease-out forwards;
+}
+
+/* Delay animations to start after the logo animation */
+.shape.red.stretch {
+  animation-delay: 2s; /* Delay to start after logo animation */
+}
+
+.shape.green.stretch {
+  animation-delay: 2.2s; /* Slightly delayed start */
+}
+
+.shape.blue.stretch {
+  animation-delay: 2.4s; /* Slightly delayed start */
+}
+
+.shape.yellow.stretch {
+  animation-delay: 2.6s; /* Slightly delayed start */
+}
+
+/* Keyframes for shapes moving out to the right */
+@keyframes moveOutRight {
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* New classes for moving shapes out to the right */
+.shape.red.move-out {
+  width: 100vw; /* Full width */
+  height: 25vh; /* Bottom 25% height */
+  top: 0; /* Position below the blue shape */
+  left: 0;
+  border-radius: 0; /* Remove border radius */
+  transform: rotate(0deg);
+  animation: moveOutRight 1s ease-in forwards;
+  animation-delay: 3s;
+}
+
+.shape.green.move-out {
+  width: 100vw; /* Full width */
+  height: 25vh; /* Bottom 25% height */
+  top: 25vh; /* Position below the blue shape */
+  left: 0;
+  border-radius: 0; /* Remove border radius */
+  transform: rotate(0deg);
+  animation: moveOutRight 1s ease-in forwards;
+  animation-delay: 3.2s;
+}
+
+.shape.blue.move-out {
+  width: 100vw; /* Full width */
+  height: 25vh; /* Bottom 25% height */
+  top: 50vh; /* Position below the blue shape */
+  left: 0;
+  border-radius: 0; /* Remove border radius */
+  transform: rotate(0deg);
+  animation: moveOutRight 1s ease-in forwards;
+  animation-delay: 3.4s;
+}
+
+.shape.yellow.move-out {
+  width: 100vw; /* Full width */
+  height: 25vh; /* Bottom 25% height */
+  top: 75vh; /* Position below the blue shape */
+  left: 0;
+  border-radius: 0; /* Remove border radius */
+  transform: rotate(0deg);
+  animation: moveOutRight 1s ease-in forwards;
+  animation-delay: 3.6s;
+}
+
+@media (max-width: 640px) {
+  @keyframes moveToTopLeft {
+    from {
+      top: 56%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    to {
+      top: 10%;
+      left: 5%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  @keyframes moveToTopLeft {
+    from {
+      top: 56%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    to {
+      top: 8%;
+      left: -69%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  @keyframes moveToTopLeft {
+    from {
+      top: 56%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    to {
+      top: 6%;
+      left: -70%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  @keyframes moveToTopLeft {
+    from {
+      top: 56%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    to {
+      top: 4%;
+      left: -160%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

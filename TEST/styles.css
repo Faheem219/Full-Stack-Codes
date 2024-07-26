@@ -1,0 +1,140 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+    /* White background */
+    font-family: Arial, sans-serif;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shapes {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.shape {
+    position: absolute;
+    width: 20px;
+    /* Start as a dot */
+    height: 20px;
+    /* Start as a dot */
+    border-radius: 50%;
+    /* Circle shape */
+    opacity: 1;
+    animation: transformShape 2s forwards 5s;
+    /* Start after 5 seconds */
+    transform-origin: center center;
+}
+
+.shape.red {
+    background-color: #DB4437;
+    /* Google Red */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.shape.green {
+    background-color: #0F9D58;
+    /* Google Green */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.shape.blue {
+    background-color: #4285F4;
+    /* Google Blue */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.shape.yellow {
+    background-color: #F4B400;
+    /* Google Yellow */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes transformShape {
+    0% {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+
+    100% {
+        width: 60px;
+        height: 15px;
+        border-radius: 7.5px;
+    }
+}
+
+.shape.red {
+    animation: transformShape 2s forwards 5s, moveRed 2s forwards 7s;
+}
+
+.shape.green {
+    animation: transformShape 2s forwards 5s, moveGreen 2s forwards 7s;
+}
+
+.shape.blue {
+    animation: transformShape 2s forwards 5s, moveBlue 2s forwards 7s;
+}
+
+.shape.yellow {
+    animation: transformShape 2s forwards 5s, moveYellow 2s forwards 7s;
+}
+
+@keyframes moveRed {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: translate(-30px, -30px) rotate(-45deg);
+    }
+}
+
+@keyframes moveGreen {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: translate(30px, -30px) rotate(45deg);
+    }
+}
+
+@keyframes moveBlue {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: translate(-30px, 30px) rotate(45deg);
+    }
+}
+
+@keyframes moveYellow {
+    0% {
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: translate(30px, 30px) rotate(-45deg);
+    }
+}
